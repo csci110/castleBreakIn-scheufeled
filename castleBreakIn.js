@@ -49,9 +49,6 @@ class Princess extends Sprite {
      handleGameLoop() {
         this.x = Math.min(game.displayWidth - rightWall.width - this.width, this.x);
         this.x = Math.max(48, this.x);
-        // if (this.x) {
-        //     this.speed = 0;
-        // }
         this.speed = 0;
      }
 }
@@ -66,10 +63,23 @@ class Ball extends Sprite {
         this.width = 48;
         this.height = 48;
         this.setImage("ball.png");
-        this.defineAnimation("spin", 1, 12);
+        this.defineAnimation("spin", 0, 11);
+        this.defineAnimation("spin", true);
         this.speed = 1;
         this.angle = 50 + Math.random() * 80;
         
+    }
+    handleGameLoop() {
+        if (this.speed <= 200) {
+            this.speed = this.speed + 2; // I changed this.  ++ increments by 1
+        }
+    }
+    handleBoundaryContact() {
+        game.removeSprite(this);
+        Ball.ballsInPlay = Ball.ballsInPlay - 1;
+        if (Ball.ballsInPlay <= 0) {
+            ann.LoseALife();
+        }
     }
 }
 
