@@ -14,10 +14,8 @@ class Wall extends Sprite {
 }
 
 new Wall(0, 0, "A spooky castle wall", "castle.png");
-
-let leftWall = new Wall(0, 200, "Left side wall", "wall.png");
-
 let rightWall = new Wall(752, 200, "Right side wall", "wall.png");
+let leftWall = new Wall(0, 200, "Left side wall", "wall.png");
 
 class Princess extends Sprite {
     constructor() {
@@ -34,18 +32,18 @@ class Princess extends Sprite {
         this.defineAnimation("left", 9, 11);
         this.defineAnimation("right", 3, 5);
     }
-    handleLeftArrowKey() {
-        this.speed = this.speedWhenWalking;
-        this.angle = 180;
-        this.playAnimation("left");
-    }
     handleRightArrowKey() {
         this.speed = this.speedWhenWalking;
         this.angle = 0;
         this.playAnimation("right");
+    
+    }
+     handleLeftArrowKey() {
+        this.speed = this.speedWhenWalking;
+        this.angle = 180;
+        this.playAnimation("left");
     }
     handleFirstGameLoop() {
-        // Set up a text area to display the number of lives remaining.
         this.livesDisplay = game.createTextArea(game.displayWidth - 144, 20);
         this.updateLivesDisplay();
     }
