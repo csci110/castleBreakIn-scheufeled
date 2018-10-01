@@ -146,7 +146,9 @@ class ExtraLifeBlock extends Block {
         Block.blocksToDestroy = Block.blocksToDestroy - 1;
     }
     handleCollision() {
-        ann.addALife = true;
+        super.handleCollision();
+        ann.addALife();
+        return true;
     }
 }
 
