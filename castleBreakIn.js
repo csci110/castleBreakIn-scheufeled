@@ -58,7 +58,7 @@ class Princess extends Sprite {
         }
         if (this.lives <= 0) {
             game.end("The mysterious stranger has escaped\nPrincess Ann for now!" + 
-            "\n\nBetter luck next time.");
+            "\n\nBetter luck next time loser.");
         }
     }
     addALife() {
