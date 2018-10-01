@@ -150,7 +150,7 @@ class ExtraLifeBlock extends Block {
     }
 }
 
-new ExtraLifeBlock(175, 220);
+new ExtraLifeBlock(175, 250);
 
 class ExtraBallBlock extends Block {
     constructor(x, y) {
@@ -164,8 +164,8 @@ class ExtraBallBlock extends Block {
     }
 }
 
-new ExtraBallBlock(325, 250);
+new ExtraBallBlock(575, 250);
 
 for (let i = 0; i < 5; i = i + 1) {
-    new Block(200 + i * 48, 200);
+    new Block(275 + i * 50, 200);
 }
